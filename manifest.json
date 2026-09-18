@@ -1,0 +1,9 @@
+{
+	"id": "materin-office",
+	"name": "Materin Office",
+	"version": "0.1.0",
+	"minAppVersion": "1.7.2",
+	"description": "Read, edit and save Office files (docx, xlsx, pptx, xls, doc, ppt) inside Obsidian with faithful write-back.",
+	"author": "leapord",
+	"isDesktopOnly": true
+}

@@ -1,0 +1,534 @@
+/*
+ * Materin Office — view styles.
+ * Flat `materin-office-*` class prefixes, Obsidian CSS variables only.
+ */
+
+.materin-office-view {
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	overflow: hidden;
+}
+
+.materin-office-placeholder {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: var(--size-2-2);
+}
+
+.materin-office-placeholder h2 {
+	margin: 0;
+}
+
+.materin-office-meta {
+	color: var(--text-muted);
+	font-size: var(--font-ui-small);
+}
+
+.materin-office-muted {
+	color: var(--text-faint);
+	font-size: var(--font-ui-small);
+}
+
+/* ── Office view shell ─────────────────────────────────────────────────── */
+
+.materin-office-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: var(--size-2-2);
+	padding: var(--size-2-2) var(--size-4-2);
+	border-bottom: 1px solid var(--background-modifier-border);
+}
+
+.materin-office-title {
+	display: flex;
+	align-items: center;
+	gap: var(--size-2-2);
+	min-width: 0;
+}
+
+.materin-office-filename {
+	font-weight: var(--font-semibold);
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.materin-office-badge {
+	font-size: var(--font-ui-smaller);
+	color: var(--text-muted);
+	background: var(--background-secondary);
+	border-radius: var(--radius-s);
+	padding: 1px 6px;
+}
+
+.materin-office-dirty-dot {
+	color: var(--color-accent);
+}
+
+.materin-office-actions {
+	display: flex;
+	gap: var(--size-2-1);
+}
+
+.materin-office-banner-slot {
+	display: flex;
+	flex-direction: column;
+}
+
+.materin-office-banner {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: var(--size-2-2);
+	padding: var(--size-2-1) var(--size-4-2);
+	font-size: var(--font-ui-small);
+}
+
+.materin-office-banner-info {
+	background: var(--background-secondary);
+}
+
+.materin-office-banner-warning {
+	background: var(--background-modifier-warning);
+	color: var(--text-normal);
+}
+
+.materin-office-banner-error {
+	background: var(--background-modifier-error);
+	color: var(--text-on-accent);
+}
+
+.materin-office-banner-actions {
+	display: flex;
+	gap: var(--size-2-1);
+	flex-shrink: 0;
+}
+
+.materin-office-body {
+	flex: 1;
+	min-height: 0;
+	display: flex;
+	flex-direction: column;
+}
+
+.materin-office-footer {
+	border-top: 1px solid var(--background-modifier-border);
+}
+
+.materin-office-status {
+	padding: 2px var(--size-4-2);
+	font-size: var(--font-ui-smaller);
+	color: var(--text-faint);
+	min-height: 20px;
+}
+
+/* ── Spreadsheet grid ──────────────────────────────────────────────────── */
+
+.materin-office-xlsx {
+	flex: 1;
+	min-height: 0;
+	display: flex;
+	flex-direction: column;
+}
+
+.materin-office-formula-bar {
+	display: flex;
+	align-items: stretch;
+	gap: 1px;
+	border-bottom: 1px solid var(--background-modifier-border);
+	background: var(--background-secondary);
+}
+
+.materin-office-formula-addr {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 72px;
+	padding: 0 var(--size-2-2);
+	font-size: var(--font-ui-small);
+	font-family: var(--font-monospace);
+	border-right: 1px solid var(--background-modifier-border);
+	color: var(--text-muted);
+}
+
+.materin-office-formula-input {
+	flex: 1;
+	background: transparent;
+	border: none;
+	box-shadow: none;
+	padding: var(--size-2-1) var(--size-2-2);
+	font-family: var(--font-monospace);
+	font-size: var(--font-ui-small);
+}
+
+.materin-office-grid-host {
+	flex: 1;
+	min-height: 0;
+}
+
+.materin-office-grid {
+	display: grid;
+	grid-template-columns: 48px 1fr;
+	grid-template-rows: 24px 1fr;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+
+.materin-office-grid-colheader {
+	grid-area: 1 / 2;
+	position: relative;
+	overflow: hidden;
+	background: var(--background-secondary);
+	border-bottom: 1px solid var(--background-modifier-border);
+}
+
+.materin-office-grid-rowheader {
+	grid-area: 2 / 1;
+	position: relative;
+	overflow: hidden;
+	background: var(--background-secondary);
+	border-right: 1px solid var(--background-modifier-border);
+}
+
+.materin-office-grid-hcell {
+	position: absolute;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: var(--font-ui-smaller);
+	color: var(--text-muted);
+	border-right: 1px solid var(--background-modifier-border);
+	border-bottom: 1px solid var(--background-modifier-border);
+	height: 24px;
+}
+
+.materin-office-grid-scroller {
+	grid-area: 2 / 2;
+	overflow: auto;
+	outline: none;
+}
+
+.materin-office-grid-sizer {
+	position: relative;
+}
+
+.materin-office-grid-cell {
+	position: absolute;
+	display: flex;
+	align-items: center;
+	padding: 0 6px;
+	font-size: var(--font-ui-small);
+	white-space: nowrap;
+	overflow: hidden;
+	border-right: 1px solid var(--background-modifier-border);
+	border-bottom: 1px solid var(--background-modifier-border);
+	background: var(--background-primary);
+	cursor: cell;
+}
+
+.materin-office-grid-cell.is-selected {
+	box-shadow: inset 0 0 0 2px var(--color-accent);
+}
+
+.materin-office-cell-input {
+	position: absolute;
+	z-index: 5;
+	border: 2px solid var(--color-accent);
+	border-radius: 0;
+	background: var(--background-primary);
+	font-size: var(--font-ui-small);
+	padding: 0 4px;
+	outline: none;
+}
+
+.materin-office-sheet-tabs {
+	display: flex;
+	gap: 2px;
+	padding: var(--size-2-1) var(--size-2-2);
+	border-top: 1px solid var(--background-modifier-border);
+	overflow-x: auto;
+}
+
+.materin-office-sheet-tab {
+	flex-shrink: 0;
+	font-size: var(--font-ui-small);
+	padding: 2px 10px;
+	background: transparent;
+	border: 1px solid transparent;
+	border-radius: var(--radius-s);
+	color: var(--text-muted);
+	cursor: pointer;
+}
+
+.materin-office-sheet-tab.is-active {
+	background: var(--background-secondary);
+	border-color: var(--background-modifier-border);
+	color: var(--text-normal);
+}
+
+/* ── Text document (docx) ──────────────────────────────────────────────── */
+
+.materin-office-docx {
+	flex: 1;
+	min-height: 0;
+	display: flex;
+	flex-direction: column;
+}
+
+.materin-office-docx-toolbar {
+	display: flex;
+	gap: var(--size-2-1);
+	padding: var(--size-2-1) var(--size-4-2);
+	border-bottom: 1px solid var(--background-modifier-border);
+}
+
+.materin-office-docx-toolbar button {
+	flex-shrink: 0;
+}
+
+.materin-office-docx-toolbar button.is-active {
+	background: var(--background-modifier-active-hover);
+	color: var(--text-normal);
+}
+
+.materin-office-docx-content {
+	flex: 1;
+	min-height: 0;
+	display: flex;
+	flex-direction: column;
+}
+
+.materin-office-docx-preview {
+	flex: 1;
+	min-height: 0;
+	overflow: auto;
+	background: var(--background-secondary);
+	padding: var(--size-4-3);
+}
+
+.materin-office-paras {
+	flex: 1;
+	min-height: 0;
+	overflow: auto;
+	padding: var(--size-4-3);
+	display: flex;
+	flex-direction: column;
+	gap: 2px;
+	max-width: 900px;
+	margin: 0 auto;
+	width: 100%;
+}
+
+.materin-office-para {
+	display: flex;
+	align-items: flex-start;
+	gap: var(--size-2-2);
+	padding: var(--size-2-2) var(--size-4-2);
+	border-radius: var(--radius-s);
+	cursor: text;
+	min-height: 1.6em;
+}
+
+.materin-office-para:hover {
+	background: var(--background-modifier-hover);
+}
+
+.materin-office-para.is-in-table {
+	border-left: 2px solid var(--background-modifier-border);
+	margin-left: var(--size-4-2);
+}
+
+.materin-office-para.is-empty .materin-office-para-text {
+	color: var(--text-faint);
+}
+
+.materin-office-para-text {
+	flex: 1;
+	white-space: pre-wrap;
+	overflow-wrap: anywhere;
+	line-height: var(--line-height-normal);
+}
+
+.materin-office-para-editor {
+	flex: 1;
+	resize: none;
+	overflow: hidden;
+	min-height: 1.6em;
+	font-family: inherit;
+	line-height: var(--line-height-normal);
+	background: var(--background-primary);
+	border: 1px solid var(--color-accent);
+	border-radius: var(--radius-s);
+	padding: var(--size-2-2);
+}
+
+/* ── Find & replace panel ─────────────────────────────────────────────── */
+
+.materin-office-fr {
+	display: flex;
+	align-items: center;
+	gap: var(--size-2-2);
+	padding: var(--size-2-1) var(--size-4-2);
+	border-bottom: 1px solid var(--background-modifier-border);
+	background: var(--background-secondary);
+	flex-wrap: wrap;
+}
+
+.materin-office-fr-query,
+.materin-office-fr-replace {
+	min-width: 160px;
+}
+
+.materin-office-fr-case-label {
+	display: flex;
+	align-items: center;
+	gap: var(--size-2-1);
+	font-size: var(--font-ui-small);
+	color: var(--text-muted);
+	margin: 0;
+	cursor: pointer;
+}
+
+.materin-office-fr-count {
+	font-size: var(--font-ui-small);
+	color: var(--text-muted);
+	margin-left: auto;
+}
+
+/* ── pptx canvas ───────────────────────────────────────────────────────── */
+
+.materin-office-pptx-ui {
+	flex: 1;
+	min-height: 0;
+	display: flex;
+	flex-direction: column;
+}
+
+.materin-office-pptx-toolbar {
+	display: flex;
+	align-items: center;
+	gap: var(--size-2-2);
+	padding: var(--size-2-1) var(--size-4-2);
+	border-bottom: 1px solid var(--background-modifier-border);
+}
+
+.materin-office-pptx-page {
+	font-size: var(--font-ui-small);
+	color: var(--text-muted);
+	min-width: 56px;
+	text-align: center;
+}
+
+.materin-office-pptx-content {
+	flex: 1;
+	min-height: 0;
+	overflow: auto;
+	padding: var(--size-4-3);
+	background: var(--background-secondary);
+}
+
+.materin-office-pptx-slide {
+	position: relative;
+	width: 100%;
+	max-width: 900px;
+	margin: 0 auto;
+	background: #ffffff;
+	box-shadow: 0 1px 6px rgba(0, 0, 0, 0.18);
+	overflow: hidden;
+}
+
+.materin-office-pptx-shape {
+	position: absolute;
+	overflow: hidden;
+	cursor: text;
+	padding: 4px 6px;
+}
+
+.materin-office-pptx-shape:hover {
+	outline: 1px dashed var(--color-accent);
+}
+
+.materin-office-pptx-shape.is-title .materin-office-pptx-shape-text {
+	font-weight: 600;
+	font-size: 1.25em;
+}
+
+.materin-office-pptx-shape-text {
+	white-space: pre-wrap;
+	overflow-wrap: anywhere;
+	color: #1f1f1f;
+}
+
+.materin-office-pptx-shape.is-empty .materin-office-pptx-shape-text {
+	color: var(--text-faint);
+}
+
+.materin-office-pptx-shape-editor {
+	width: 100%;
+	height: 100%;
+	resize: none;
+	border: 1px solid var(--color-accent);
+	border-radius: var(--radius-s);
+	background: var(--background-primary);
+	font-family: inherit;
+	font-size: inherit;
+}
+
+.materin-office-pptx-flow-label {
+	font-size: var(--font-ui-small);
+	color: var(--text-muted);
+	margin: var(--size-4-2) auto var(--size-2-2);
+	max-width: 900px;
+}
+
+.materin-office-pptx-flow-shape {
+	max-width: 900px;
+	margin: 0 auto var(--size-2-2);
+	background: #ffffff;
+	box-shadow: 0 1px 4px rgba(0, 0, 0, 0.12);
+	padding: var(--size-2-2) var(--size-4-2);
+	cursor: text;
+	border-radius: var(--radius-s);
+}
+
+.materin-office-pptx-flow-shape:hover {
+	outline: 1px dashed var(--color-accent);
+}
+
+/* ── doc read-only view ────────────────────────────────────────────────── */
+
+.materin-office-doc-ui {
+	flex: 1;
+	min-height: 0;
+	display: flex;
+	flex-direction: column;
+}
+
+.materin-office-doc-toolbar {
+	display: flex;
+	align-items: center;
+	gap: var(--size-2-2);
+	padding: var(--size-2-1) var(--size-4-2);
+	border-bottom: 1px solid var(--background-modifier-border);
+}
+
+.materin-office-doc-badge {
+	font-size: var(--font-ui-small);
+	color: var(--text-muted);
+	margin-right: auto;
+}
+
+.materin-office-doc-body {
+	flex: 1;
+	min-height: 0;
+	overflow: auto;
+	padding: var(--size-4-3);
+	background: var(--background-secondary);
+}
