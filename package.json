@@ -1,6 +1,6 @@
 {
 	"name": "materin-office",
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"description": "Obsidian plugin that reads, edits and saves Office files (docx, xlsx, pptx, xls, doc, ppt) with faithful write-back.",
 	"main": "main.js",
 	"scripts": {
