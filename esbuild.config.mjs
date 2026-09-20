@@ -35,6 +35,20 @@ const context = await esbuild.context({
 		js: `/* ${BANNER_TEXT}${prod ? "" : " (dev)"} */`,
 	},
 	entryPoints: ["src/main.ts"],
+	// Replace the `immediate` package (jszip → lie) with a shim that keeps the
+	// same queue semantics but drops the <script>-injection and `new Function`
+	// fallbacks flagged by Obsidian's plugin review. See src/shims/immediate.ts.
+	alias: {
+		// jszip's and exceljs's main/browser entries are pre-bundled UMDs with
+		// promise-scheduler polyfills (immediate, setimmediate) inlined — their
+		// <script>-injection and `new Function` fallbacks get flagged by Obsidian's
+		// plugin review. Point at their unbundled source so the shim aliases below
+		// actually intercept, and swap the polyfills for clean shims.
+		jszip: "jszip/lib/index.js",
+		exceljs: "exceljs/lib/exceljs.browser.js",
+		immediate: "./src/shims/immediate.ts",
+		setimmediate: "./src/shims/setimmediate.ts",
+	},
 	bundle: true,
 	external: ["obsidian", "electron", ...builtinModules],
 	format: "cjs",

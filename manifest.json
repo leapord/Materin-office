@@ -1,7 +1,7 @@
 {
 	"id": "materin-office",
 	"name": "Materin Office",
-	"version": "0.1.2",
+	"version": "0.1.3",
 	"minAppVersion": "1.7.2",
 	"description": "Read, edit and save Office files (docx, xlsx, pptx, xls, doc, ppt) with faithful write-back.",
 	"author": "leapord",
